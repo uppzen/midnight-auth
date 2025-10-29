@@ -146,10 +146,11 @@ npm run type-check    # TypeScript type checking
 
 ## Support & Resources
 
-- 📚 [NPM Publishing Guide](./NPM_PUBLISHING.md)
-- 📖 [README](./README.md)
-- 🔧 [Contributing Guide](./CONTRIBUTING.md)
-- 📝 [Changelog](./CHANGELOG.md)
+- 📚 [NPM Publishing Guide](./NPM_PUBLISHING.md) - Initial setup and publishing
+- 🚀 [Release Guide](./RELEASE.md) - Complete release process and best practices
+- 📖 [README](./README.md) - Package documentation
+- 🔧 [Contributing Guide](./CONTRIBUTING.md) - How to contribute
+- 📝 [Changelog](./CHANGELOG.md) - Version history
 
 ---
 

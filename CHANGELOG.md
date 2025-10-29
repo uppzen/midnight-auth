@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+## [1.0.1] - 2025-10-29
+
+### Changed
+- Migrated to scoped package `@uppzen/midnight-auth`
+- Updated repository URLs to `uppzen/midnight-auth`
+- Added professional GitHub setup (workflows, labels, templates)
+- Added ESLint and Prettier configurations
+- Added comprehensive NPM publishing documentation
+
+### Added
+- GitHub Actions workflow for automated npm publishing
+- GitHub Actions workflow for automated releases
+- Code quality tools (ESLint, Prettier)
+- CODEOWNERS file for repository management
+- SECURITY.md for vulnerability reporting
+- FUNDING.yml for sponsorship options
+- Professional issue labels configuration
+- Comprehensive setup and publishing guides
+
 ## [1.0.0] - 2025-01-28
 
 ### Added
@@ -63,7 +84,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Release Notes
 
-This is the first production-ready release of @eclipse/midnight-auth, providing a complete authentication solution for Midnight Network dApps. The library has been thoroughly tested and includes all essential features for wallet integration.
+This is the first production-ready release of @uppzen/midnight-auth, providing a complete authentication solution for Midnight Network dApps. The library has been thoroughly tested and includes all essential features for wallet integration.
 
 ### Breaking Changes
 
@@ -79,4 +100,4 @@ Not applicable for initial release.
 
 ---
 
-For older releases, see [GitHub Releases](https://github.com/eclipse-labs-org/midnight-auth/releases).
+For older releases, see [GitHub Releases](https://github.com/uppzen/midnight-auth/releases).
