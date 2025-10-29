@@ -1,0 +1,60 @@
+# Source files
+src/
+*.ts
+*.tsx
+!*.d.ts
+
+# Config files
+tsconfig.json
+tailwind.config.js
+postcss.config.mjs
+.eslintrc*
+.prettierrc*
+
+# Development
+node_modules/
+.next/
+.turbo/
+coverage/
+.nyc_output/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+circle.yml
+
+# Testing
+__tests__/
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+jest.config.*
+vitest.config.*
+
+# Documentation (keep README and CHANGELOG)
+docs/
+
+# Misc
+*.log
+*.md~
+.env
+.env.*
+!.env.example

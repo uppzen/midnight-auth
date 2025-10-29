@@ -1,0 +1,77 @@
+{
+  "name": "midnight-auth",
+  "version": "1.0.0",
+  "description": "Modern authentication and wallet connection library for Midnight Network",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "npm run build:css && npm run build:js",
+    "build:css": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --minify",
+    "build:js": "tsup src/index.ts --format cjs,esm --dts",
+    "dev": "concurrently \"npm run build:css -- --watch\" \"tsup src/index.ts --format cjs,esm --dts --watch\"",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "lucide-react": "^0.454.0"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0",
+    "@types/node": "^24.9.1",
+    "tailwindcss": "^3.4.17",
+    "postcss": "^8.5.6",
+    "autoprefixer": "^10.4.20",
+    "next": "16.0.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "class-variance-authority": "0.7.1",
+    "clsx": "2.1.1",
+    "tailwind-merge": "3.3.1",
+    "tailwindcss-animate": "1.0.7",
+    "concurrently": "^8.2.2"
+  },
+  "keywords": [
+    "midnight",
+    "midnight-network",
+    "wallet",
+    "authentication",
+    "lace",
+    "web3",
+    "blockchain",
+    "react",
+    "ui",
+    "components",
+    "typescript"
+  ],
+  "author": "Eclipse Labs",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skeezrxcco/midnight-auth.git"
+  },
+  "bugs": {
+    "url": "https://github.com/skeezrxcco/midnight-auth/issues"
+  },
+  "homepage": "https://github.com/skeezrxcco/midnight-auth#readme"
+}

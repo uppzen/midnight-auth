@@ -1,0 +1,62 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Midnight Connect Library Styles */
+@layer components {
+  .midnight-connect-button {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200;
+    @apply bg-zinc-900 text-white border border-zinc-800;
+    @apply hover:bg-zinc-800 hover:border-zinc-700;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .midnight-connect-modal-backdrop {
+    @apply fixed inset-0 z-50 bg-black/50 backdrop-blur-sm;
+    @apply flex items-center justify-center p-4;
+  }
+
+  .midnight-connect-modal-content {
+    @apply relative w-full max-w-md rounded-xl border border-zinc-800 bg-zinc-950 p-6 shadow-2xl;
+  }
+
+  .midnight-wallet-card {
+    @apply rounded-lg border border-zinc-800 bg-zinc-950 p-4;
+  }
+
+  .midnight-session-timer {
+    @apply inline-flex items-center gap-2 rounded-lg border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
