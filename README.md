@@ -2,12 +2,12 @@
 
 <div align="center">
 
-[![npm version](https://img.shields.io/npm/v/midnight-auth.svg)](https://www.npmjs.com/package/midnight-auth)
-[![npm downloads](https://img.shields.io/npm/dm/midnight-auth.svg)](https://www.npmjs.com/package/midnight-auth)
+[![npm version](https://img.shields.io/npm/v/@uppzen/midnight-auth.svg)](https://www.npmjs.com/package/@uppzen/midnight-auth)
+[![npm downloads](https://img.shields.io/npm/dm/@uppzen/midnight-auth.svg)](https://www.npmjs.com/package/@uppzen/midnight-auth)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-18%2B-blue)](https://reactjs.org/)
-[![CI](https://github.com/skeezrxcco/midnight-auth/workflows/CI/badge.svg)](https://github.com/skeezrxcco/midnight-auth/actions)
+[![CI](https://github.com/uppzen/midnight-auth/workflows/CI/badge.svg)](https://github.com/uppzen/midnight-auth/actions)
 
 Modern authentication and wallet connection library for Midnight Network. Beautiful UI components, TypeScript support, and effortless integration.
 
@@ -38,11 +38,11 @@ Modern authentication and wallet connection library for Midnight Network. Beauti
 ## Installation
 
 ```bash
-npm install midnight-auth
+npm install @uppzen/midnight-auth
 # or
-yarn add midnight-auth
+yarn add @uppzen/midnight-auth
 # or
-pnpm add midnight-auth
+pnpm add @uppzen/midnight-auth
 ```
 
 ### Prerequisites
@@ -59,8 +59,8 @@ Wrap your app with `MidnightAuthProvider`:
 
 ```tsx
 // app/layout.tsx (Next.js 13+)
-import 'midnight-auth/styles.css'
-import { MidnightAuthProvider } from 'midnight-auth'
+import '@uppzen/midnight-auth/styles.css'
+import { MidnightAuthProvider } from '@uppzen/midnight-auth'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -85,7 +85,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 ```tsx
 'use client'
 
-import { MidnightConnectButton, useMidnightAuth } from 'midnight-auth'
+import { MidnightConnectButton, useMidnightAuth } from '@uppzen/midnight-auth'
 
 export default function Page() {
   const { isConnected } = useMidnightAuth()
