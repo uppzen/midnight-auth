@@ -1,6 +1,6 @@
 {
   "name": "@uppzen/midnight-auth",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Modern authentication and wallet connection library for Midnight Network",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
