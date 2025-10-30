@@ -33,6 +33,47 @@ npm install @uppzen/midnight-auth
 
 ## Quick Start
 
+### Next.js App Router (13+)
+
+Create a client component wrapper:
+
+```tsx
+// app/providers.tsx
+'use client'
+
+import { MidnightAuthProvider } from '@uppzen/midnight-auth'
+import '@uppzen/midnight-auth/styles.css'
+
+export function Providers({ children }: { children: React.ReactNode }) {
+  return (
+    <MidnightAuthProvider>
+      {children}
+    </MidnightAuthProvider>
+  )
+}
+```
+
+Then use it in your root layout:
+
+```tsx
+// app/layout.tsx
+import { Providers } from './providers'
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
+    </html>
+  )
+}
+```
+
+### Next.js Pages Router or React
+
 ```tsx
 import '@uppzen/midnight-auth/styles.css'
 import { MidnightAuthProvider, MidnightConnectButton } from '@uppzen/midnight-auth'

@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Documentation
+- Updated README with Next.js App Router setup instructions
+- Added client component wrapper pattern for Next.js 13+ compatibility
+- Clarified usage for both App Router and Pages Router
+
 ## [1.0.1] - 2025-10-29
 
 ### Changed
