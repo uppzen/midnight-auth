@@ -42,3 +42,11 @@ next-env.d.ts
 
 # dist
 /dist
+
+# sandbox (internal testing only)
+/sandbox-dist
+index.html
+sandbox.html
+sandbox-dev.html
+sandbox-entry.tsx
+vite.config.ts
