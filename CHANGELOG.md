@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Documentation
+
 - Updated README with Next.js App Router setup instructions
 - Added client component wrapper pattern for Next.js 13+ compatibility
 - Clarified usage for both App Router and Pages Router
@@ -15,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.1] - 2025-10-29
 
 ### Changed
+
 - Migrated to scoped package `@uppzen/midnight-auth`
 - Updated repository URLs to `uppzen/midnight-auth`
 - Added professional GitHub setup (workflows, labels, templates)
@@ -22,6 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added comprehensive NPM publishing documentation
 
 ### Added
+
 - GitHub Actions workflow for automated npm publishing
 - GitHub Actions workflow for automated releases
 - Code quality tools (ESLint, Prettier)
