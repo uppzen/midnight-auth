@@ -32,7 +32,8 @@
     "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\"",
     "type-check": "tsc --noEmit",
     "prepublishOnly": "npm run build",
-    "prepack": "npm run build"
+    "prepack": "npm run build",
+    "release": "./scripts/release.sh"
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.1.16",
