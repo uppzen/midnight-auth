@@ -20,6 +20,27 @@ export type { MidnightSessionTimerProps } from './components/MidnightSessionTime
 export { ProtectedRoute } from './components/ProtectedRoute'
 export type { ProtectedRouteProps } from './components/ProtectedRoute'
 
+// UI Components
+export { Button } from './components/ui/button'
+export type { ButtonProps } from './components/ui/button'
+export {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuGroup,
+  DropdownMenuPortal,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuCheckboxItem,
+} from './components/ui/dropdown-menu'
+
 // Types
 export type {
   WalletState,

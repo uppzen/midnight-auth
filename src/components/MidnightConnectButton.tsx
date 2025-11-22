@@ -1,12 +1,19 @@
 "use client"
 
-import React from 'react'
-
-import { useState, useEffect, useRef } from "react"
+import React, { useState } from "react"
 import { useMidnightAuth } from "../hooks/useMidnightAuth"
 import { useMidnightWallet } from "../hooks/useMidnightWallet"
 import { MidnightConnectModal } from "./MidnightConnectModal"
 import { Copy, LogOut, User, ChevronDown, Check } from "lucide-react"
+import { Button } from "./ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu"
 
 export interface MidnightConnectButtonProps {
   className?: string
@@ -32,20 +39,7 @@ export const MidnightConnectButton: React.FC<MidnightConnectButtonProps> = ({
   const { isConnected, isConnecting, connect, disconnect } = useMidnightAuth()
   const { address } = useMidnightWallet()
   const [showModal, setShowModal] = useState(false)
-  const [showDropdown, setShowDropdown] = useState(false)
   const [copied, setCopied] = useState(false)
-  const dropdownRef = useRef<HTMLDivElement>(null)
-
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setShowDropdown(false)
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [])
 
   const handleConnect = async () => {
     await connect()
@@ -55,7 +49,6 @@ export const MidnightConnectButton: React.FC<MidnightConnectButtonProps> = ({
 
   const handleDisconnect = () => {
     disconnect()
-    setShowDropdown(false)
     if (onDisconnectSuccess) onDisconnectSuccess()
   }
 
@@ -72,101 +65,97 @@ export const MidnightConnectButton: React.FC<MidnightConnectButtonProps> = ({
     return `${addr.slice(0, 6)}...${addr.slice(-4)}`
   }
 
-  const sizeClasses = {
-    sm: "px-3 py-1.5 text-sm",
-    md: "px-4 py-2.5 text-sm",
-    lg: "px-6 py-3 text-base",
-  }
+  // Map size prop to shadcn button size
+  const buttonSize = size === "md" ? "default" : size === "lg" ? "lg" : "sm"
 
   // Connected state - show dropdown button
   if (isConnected) {
     return (
-      <div className="relative" ref={dropdownRef}>
-        <button
-          onClick={() => setShowDropdown(!showDropdown)}
-          className={`
-            ${sizeClasses[size]}
-            rounded-xl font-medium transition-all duration-200
-            bg-zinc-900 hover:bg-zinc-800 text-white border border-zinc-800 hover:border-zinc-700
-            flex items-center gap-2.5 shadow-lg
-            ${className}
-          `}
-        >
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            <span className="font-mono">{formatAddress(address)}</span>
-          </div>
-          <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${showDropdown ? 'rotate-180' : ''}`} />
-        </button>
-
-        {/* Dropdown Menu */}
-        {showDropdown && (
-          <div 
-            className="absolute right-0 mt-2 w-64 bg-zinc-950 border border-zinc-800 rounded-2xl shadow-2xl overflow-hidden z-50"
-            style={{ animation: 'slideDown 0.2s ease-out' }}
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button
+            variant="outline"
+            size={buttonSize}
+            className={`bg-zinc-900 text-white border-zinc-800 hover:bg-zinc-800 hover:text-white gap-2.5 rounded-xl shadow-lg ${className}`}
           >
-            {/* Header */}
-            <div className="p-4 border-b border-zinc-800/50 bg-gradient-to-br from-zinc-900/50 to-transparent">
-              <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                  <User className="h-5 w-5 text-white" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-xs text-zinc-400 mb-0.5">Connected</p>
-                  <p className="text-sm font-mono text-white truncate">{formatAddress(address)}</p>
-                </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+              <span className="font-mono">{formatAddress(address)}</span>
+            </div>
+            <ChevronDown className="h-4 w-4 opacity-50" />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="w-64 bg-zinc-950 border-zinc-800 text-zinc-100 rounded-xl shadow-2xl" align="end">
+          <div className="p-2 border-b border-zinc-800/50 bg-gradient-to-br from-zinc-900/50 to-transparent">
+            <div className="flex items-center gap-3 px-2 py-1.5">
+              <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                <User className="h-5 w-5 text-white" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-xs text-zinc-400 mb-0.5">Connected</p>
+                <p className="text-sm font-mono text-white truncate">
+                  {formatAddress(address)}
+                </p>
               </div>
             </div>
-
-            {/* Menu Items */}
-            <div className="p-2">
-              <button
-                onClick={handleCopyAddress}
-                className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-zinc-300 hover:bg-zinc-800/50 hover:text-white transition-all duration-200 group"
-              >
-                {copied ? (
-                  <Check className="h-4 w-4 text-green-400" />
-                ) : (
-                  <Copy className="h-4 w-4 text-zinc-400 group-hover:text-white transition-colors" />
-                )}
-                <span>{copied ? 'Copied!' : 'Copy Address'}</span>
-              </button>
-
-              <div className="my-1 h-px bg-zinc-800/50" />
-
-              <button
-                onClick={handleDisconnect}
-                className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-red-400 hover:bg-red-500/10 transition-all duration-200 group"
-              >
-                <LogOut className="h-4 w-4" />
-                <span>Disconnect</span>
-              </button>
-            </div>
           </div>
-        )}
-      </div>
+          <div className="p-1">
+            <DropdownMenuItem
+              onClick={handleCopyAddress}
+              className="cursor-pointer rounded-xl focus:bg-zinc-900 focus:text-white text-zinc-300 gap-2 my-1"
+            >
+              {copied ? (
+                <Check className="h-4 w-4 text-green-400" />
+              ) : (
+                <Copy className="h-4 w-4 text-zinc-400 group-hover:text-white" />
+              )}
+              <span>{copied ? "Copied!" : "Copy Address"}</span>
+            </DropdownMenuItem>
+            <DropdownMenuSeparator className="bg-zinc-800/50" />
+            <DropdownMenuItem
+              onClick={handleDisconnect}
+              className="cursor-pointer rounded-xl focus:bg-red-500/10 focus:text-red-400 text-red-400 gap-2 my-1"
+            >
+              <LogOut className="h-4 w-4" />
+              <span>{disconnectText}</span>
+            </DropdownMenuItem>
+          </div>
+        </DropdownMenuContent>
+      </DropdownMenu>
     )
   }
 
   // Not connected - show connect button
   return (
     <>
-      <button
+      <Button
         onClick={() => setShowModal(true)}
         disabled={isConnecting}
+        size={buttonSize}
         className={`
-          ${sizeClasses[size]}
           rounded-xl font-semibold transition-all duration-200
           bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700
           text-white shadow-lg hover:shadow-xl hover:shadow-blue-500/25
           disabled:opacity-50 disabled:cursor-not-allowed
-          flex items-center gap-2
+          gap-2
           ${className}
         `}
       >
         {isConnecting && (
-          <svg className="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+          <svg
+            className="animate-spin h-4 w-4"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <circle
+              className="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              strokeWidth="4"
+            />
             <path
               className="opacity-75"
               fill="currentColor"
@@ -175,7 +164,7 @@ export const MidnightConnectButton: React.FC<MidnightConnectButtonProps> = ({
           </svg>
         )}
         {isConnecting ? connectingText : connectText}
-      </button>
+      </Button>
 
       <MidnightConnectModal
         isOpen={showModal}

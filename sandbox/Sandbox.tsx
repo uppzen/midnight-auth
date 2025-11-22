@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
-import { MidnightAuthProvider } from './context/MidnightAuthContext'
-import { MidnightConnectButton } from './components/MidnightConnectButton'
-import { MidnightWalletInfo } from './components/MidnightWalletInfo'
-import { MidnightSessionTimer } from './components/MidnightSessionTimer'
-import { ProtectedRoute } from './components/ProtectedRoute'
-import { useMidnightAuth } from './hooks/useMidnightAuth'
-import { useMidnightWallet } from './hooks/useMidnightWallet'
-import { useMidnightSession } from './hooks/useMidnightSession'
+import { 
+  MidnightAuthProvider,
+  MidnightConnectButton,
+  MidnightWalletInfo,
+  MidnightSessionTimer,
+  ProtectedRoute,
+  useMidnightAuth,
+  useMidnightWallet,
+  useMidnightSession
+} from '@uppzen/midnight-auth'
 
 /**
  * Sandbox Component - Internal Testing Page
@@ -225,26 +227,7 @@ const SandboxContent: React.FC = () => {
                 <p className="text-sm font-medium mb-2">Default</p>
                 <MidnightConnectButton />
               </div>
-              <div className="p-4 bg-gray-50 rounded-lg">
-                <p className="text-sm font-medium mb-2">Small</p>
-                <MidnightConnectButton size="sm" />
-              </div>
-              <div className="p-4 bg-gray-50 rounded-lg">
-                <p className="text-sm font-medium mb-2">Large</p>
-                <MidnightConnectButton size="lg" />
-              </div>
-              <div className="p-4 bg-gray-50 rounded-lg">
-                <p className="text-sm font-medium mb-2">Outline Variant</p>
-                <MidnightConnectButton variant="outline" />
-              </div>
-              <div className="p-4 bg-gray-50 rounded-lg">
-                <p className="text-sm font-medium mb-2">Ghost Variant</p>
-                <MidnightConnectButton variant="ghost" />
-              </div>
-              <div className="p-4 bg-gray-50 rounded-lg">
-                <p className="text-sm font-medium mb-2">Custom Text</p>
-                <MidnightConnectButton connectText="Connect to Midnight" />
-              </div>
+         
             </div>
           </div>
 
