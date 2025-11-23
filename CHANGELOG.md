@@ -1,3 +1,8 @@
+## [1.0.2] - 2025-11-23
+
+### Changed
+- fix MidnightConnectButton UI
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
