@@ -43,7 +43,7 @@ export const useMidnightWallet = (): UseMidnightWalletReturn => {
     try {
       await refreshSession()
       return walletState?.balance || null
-    } catch (error) {
+    } catch {
       return null
     }
   }, [refreshSession, walletState])

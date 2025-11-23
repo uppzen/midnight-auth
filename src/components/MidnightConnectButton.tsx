@@ -1,19 +1,18 @@
-"use client"
+'use client'
 
-import React, { useState } from "react"
-import { useMidnightAuth } from "../hooks/useMidnightAuth"
-import { useMidnightWallet } from "../hooks/useMidnightWallet"
-import { MidnightConnectModal } from "./MidnightConnectModal"
-import { Copy, LogOut, User, ChevronDown, Check } from "lucide-react"
-import { Button } from "./ui/button"
+import React, { useState } from 'react'
+import { useMidnightAuth } from '../hooks/useMidnightAuth'
+import { useMidnightWallet } from '../hooks/useMidnightWallet'
+import { MidnightConnectModal } from './MidnightConnectModal'
+import { Copy, LogOut, User, ChevronDown, Check } from 'lucide-react'
+import { Button } from './ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "./ui/dropdown-menu"
+} from './ui/dropdown-menu'
 
 export interface MidnightConnectButtonProps {
   className?: string
@@ -22,19 +21,18 @@ export interface MidnightConnectButtonProps {
   disconnectText?: string
   onConnectSuccess?: () => void
   onDisconnectSuccess?: () => void
-  variant?: "default" | "outline" | "ghost"
-  size?: "sm" | "md" | "lg"
+  variant?: 'default' | 'outline' | 'ghost'
+  size?: 'sm' | 'md' | 'lg'
 }
 
 export const MidnightConnectButton: React.FC<MidnightConnectButtonProps> = ({
-  className = "",
-  connectText = "Connect Wallet",
-  connectingText = "Connecting...",
-  disconnectText = "Disconnect",
+  className = '',
+  connectText = 'Connect Wallet',
+  connectingText = 'Connecting...',
+  disconnectText = 'Disconnect',
   onConnectSuccess,
   onDisconnectSuccess,
-  variant = "default",
-  size = "md",
+  size = 'md',
 }) => {
   const { isConnected, isConnecting, connect, disconnect } = useMidnightAuth()
   const { address } = useMidnightWallet()
@@ -61,12 +59,12 @@ export const MidnightConnectButton: React.FC<MidnightConnectButtonProps> = ({
   }
 
   const formatAddress = (addr: string | null): string => {
-    if (!addr) return "N/A"
+    if (!addr) return 'N/A'
     return `${addr.slice(0, 6)}...${addr.slice(-4)}`
   }
 
   // Map size prop to shadcn button size
-  const buttonSize = size === "md" ? "default" : size === "lg" ? "lg" : "sm"
+  const buttonSize = size === 'md' ? 'default' : size === 'lg' ? 'lg' : 'sm'
 
   // Connected state - show dropdown button
   if (isConnected) {
@@ -85,7 +83,10 @@ export const MidnightConnectButton: React.FC<MidnightConnectButtonProps> = ({
             <ChevronDown className="h-4 w-4 opacity-50" />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-64 bg-zinc-950 border-zinc-800 text-zinc-100 rounded-xl shadow-2xl" align="end">
+        <DropdownMenuContent
+          className="w-64 bg-zinc-950 border-zinc-800 text-zinc-100 rounded-xl shadow-2xl"
+          align="end"
+        >
           <div className="p-2 border-b border-zinc-800/50 bg-gradient-to-br from-zinc-900/50 to-transparent">
             <div className="flex items-center gap-3 px-2 py-1.5">
               <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
@@ -93,9 +94,7 @@ export const MidnightConnectButton: React.FC<MidnightConnectButtonProps> = ({
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-xs text-zinc-400 mb-0.5">Connected</p>
-                <p className="text-sm font-mono text-white truncate">
-                  {formatAddress(address)}
-                </p>
+                <p className="text-sm font-mono text-white truncate">{formatAddress(address)}</p>
               </div>
             </div>
           </div>
@@ -109,7 +108,7 @@ export const MidnightConnectButton: React.FC<MidnightConnectButtonProps> = ({
               ) : (
                 <Copy className="h-4 w-4 text-zinc-400 group-hover:text-white" />
               )}
-              <span>{copied ? "Copied!" : "Copy Address"}</span>
+              <span>{copied ? 'Copied!' : 'Copy Address'}</span>
             </DropdownMenuItem>
             <DropdownMenuSeparator className="bg-zinc-800/50" />
             <DropdownMenuItem

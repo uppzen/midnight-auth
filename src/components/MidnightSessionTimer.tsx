@@ -1,22 +1,22 @@
-"use client"
+'use client'
 
 import React from 'react'
 
-import { useState, useEffect } from "react"
-import { useMidnightSession } from "../hooks/useMidnightSession"
+import { useState, useEffect } from 'react'
+import { useMidnightSession } from '../hooks/useMidnightSession'
 
 export interface MidnightSessionTimerProps {
   className?: string
   showRefreshButton?: boolean
   autoRefreshThreshold?: number
-  variant?: "default" | "compact" | "minimal"
+  variant?: 'default' | 'compact' | 'minimal'
 }
 
 export const MidnightSessionTimer: React.FC<MidnightSessionTimerProps> = ({
-  className = "",
+  className = '',
   showRefreshButton = true,
   autoRefreshThreshold = 5 * 60 * 1000,
-  variant = "default",
+  variant = 'default',
 }) => {
   const { session, isExpired, timeRemaining, refreshSession } = useMidnightSession()
   const [, setTick] = useState(0)
@@ -55,26 +55,28 @@ export const MidnightSessionTimer: React.FC<MidnightSessionTimerProps> = ({
 
   const isWarning = timeRemaining < 10 * 60 * 1000 && !isExpired
 
-  if (variant === "minimal") {
+  if (variant === 'minimal') {
     return (
       <div className={`flex items-center gap-2 ${className}`}>
         <div
-          className={`w-2 h-2 rounded-full ${isExpired ? "bg-red-400" : isWarning ? "bg-yellow-400" : "bg-green-400"}`}
+          className={`w-2 h-2 rounded-full ${isExpired ? 'bg-red-400' : isWarning ? 'bg-yellow-400' : 'bg-green-400'}`}
         />
-        <span className="text-sm text-zinc-400">{isExpired ? "Expired" : formatTime(timeRemaining)}</span>
+        <span className="text-sm text-zinc-400">
+          {isExpired ? 'Expired' : formatTime(timeRemaining)}
+        </span>
       </div>
     )
   }
 
-  if (variant === "compact") {
+  if (variant === 'compact') {
     return (
       <div
         className={`flex items-center gap-3 px-3 py-2 rounded-lg border ${
           isExpired
-            ? "bg-red-500/10 border-red-500/30"
+            ? 'bg-red-500/10 border-red-500/30'
             : isWarning
-              ? "bg-yellow-500/10 border-yellow-500/30"
-              : "bg-zinc-900 border-zinc-800"
+              ? 'bg-yellow-500/10 border-yellow-500/30'
+              : 'bg-zinc-900 border-zinc-800'
         } ${className}`}
       >
         <div className="flex items-center gap-2">
@@ -88,17 +90,17 @@ export const MidnightSessionTimer: React.FC<MidnightSessionTimerProps> = ({
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className={isExpired ? "text-red-400" : isWarning ? "text-yellow-400" : "text-zinc-400"}
+            className={isExpired ? 'text-red-400' : isWarning ? 'text-yellow-400' : 'text-zinc-400'}
           >
             <circle cx="12" cy="12" r="10" />
             <polyline points="12 6 12 12 16 14" />
           </svg>
           <span
             className={`text-sm font-medium ${
-              isExpired ? "text-red-400" : isWarning ? "text-yellow-400" : "text-white"
+              isExpired ? 'text-red-400' : isWarning ? 'text-yellow-400' : 'text-white'
             }`}
           >
-            {isExpired ? "Expired" : formatTime(timeRemaining)}
+            {isExpired ? 'Expired' : formatTime(timeRemaining)}
           </span>
         </div>
         {showRefreshButton && !isExpired && (
@@ -117,10 +119,10 @@ export const MidnightSessionTimer: React.FC<MidnightSessionTimerProps> = ({
     <div
       className={`p-4 rounded-xl border ${
         isExpired
-          ? "bg-red-500/10 border-red-500/30"
+          ? 'bg-red-500/10 border-red-500/30'
           : isWarning
-            ? "bg-yellow-500/10 border-yellow-500/30"
-            : "bg-zinc-900 border-zinc-800"
+            ? 'bg-yellow-500/10 border-yellow-500/30'
+            : 'bg-zinc-900 border-zinc-800'
       } ${className}`}
     >
       <div className="flex items-center justify-between">
@@ -136,21 +138,23 @@ export const MidnightSessionTimer: React.FC<MidnightSessionTimerProps> = ({
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className={isExpired ? "text-red-400" : isWarning ? "text-yellow-400" : "text-zinc-400"}
+              className={
+                isExpired ? 'text-red-400' : isWarning ? 'text-yellow-400' : 'text-zinc-400'
+              }
             >
               <circle cx="12" cy="12" r="10" />
               <polyline points="12 6 12 12 16 14" />
             </svg>
             <p className="text-xs font-medium text-zinc-500 uppercase tracking-wider">
-              Session {isExpired ? "Expired" : "Expires In"}
+              Session {isExpired ? 'Expired' : 'Expires In'}
             </p>
           </div>
           <p
             className={`text-xl font-semibold ${
-              isExpired ? "text-red-400" : isWarning ? "text-yellow-400" : "text-white"
+              isExpired ? 'text-red-400' : isWarning ? 'text-yellow-400' : 'text-white'
             }`}
           >
-            {isExpired ? "Session Expired" : formatTime(timeRemaining)}
+            {isExpired ? 'Session Expired' : formatTime(timeRemaining)}
           </p>
         </div>
 
@@ -182,7 +186,7 @@ export const MidnightSessionTimer: React.FC<MidnightSessionTimerProps> = ({
       {isWarning && !isExpired && (
         <div className="mt-3 pt-3 border-t border-yellow-500/20">
           <p className="text-xs text-yellow-400/80">
-            Your session is about to expire. Click "Extend Session" to continue.
+            Your session is about to expire. Click &quot;Extend Session&quot; to continue.
           </p>
         </div>
       )}
