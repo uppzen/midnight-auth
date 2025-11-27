@@ -1,8 +1,3 @@
-## [1.0.2] - 2025-11-23
-
-### Changed
-- fix MidnightConnectButton UI
-
 # Changelog
 
 All notable changes to this project will be documented in this file.
@@ -10,23 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
-
-### Documentation
-
-- Updated README with Next.js App Router setup instructions
-- Added client component wrapper pattern for Next.js 13+ compatibility
-- Clarified usage for both App Router and Pages Router
-
-## [1.0.1] - 2025-10-29
+## [1.0.2] - 2025-11-23
 
 ### Changed
 
-- Migrated to scoped package `@uppzen/midnight-auth`
-- Updated repository URLs to `uppzen/midnight-auth`
-- Added professional GitHub setup (workflows, labels, templates)
-- Added ESLint and Prettier configurations
-- Added comprehensive NPM publishing documentation
+- fix MidnightConnectButton UI
+- Update discord link in docs footer
+- Improve discord server structure
+
+## [1.0.1] - 2025-10-29
 
 ### Added
 
@@ -38,6 +25,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - FUNDING.yml for sponsorship options
 - Professional issue labels configuration
 - Comprehensive setup and publishing guides
+
+### Changed
+
+- Migrated to scoped package `@uppzen/midnight-auth`
+- Updated repository URLs to `uppzen/midnight-auth`
+- Added professional GitHub setup (workflows, labels, templates)
+- Added ESLint and Prettier configurations
+- Added comprehensive NPM publishing documentation
 
 ## [1.0.0] - 2025-01-28
 
