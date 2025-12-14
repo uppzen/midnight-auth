@@ -4,7 +4,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@uppzen/midnight-auth.svg)](https://www.npmjs.com/package/@uppzen/midnight-auth)
 [![npm downloads](https://img.shields.io/npm/dm/@uppzen/midnight-auth.svg)](https://www.npmjs.com/package/@uppzen/midnight-auth)
-[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-18%2B-blue)](https://reactjs.org/)
 
@@ -107,7 +107,7 @@ For complete documentation, API reference, and examples, visit **[docs.uppzen.co
 
 ## License
 
-Apache 2.0 © [Uppzen](https://uppzen.com)
+MIT © [Uppzen](https://uppzen.com)
 
 ---
 

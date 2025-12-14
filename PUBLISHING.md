@@ -11,12 +11,12 @@
    - Renamed to `@eclipse/midnight-auth`
    - Version set to `1.0.0`
    - All dependencies properly configured
-   - License: Apache 2.0
+   - License: MIT
 
 3. **Documentation** ✓
    - Comprehensive README.md with examples
    - CHANGELOG.md created
-   - LICENSE file (Apache 2.0)
+   - LICENSE file (MIT)
    - .npmignore configured
 
 4. **Build** ✓
